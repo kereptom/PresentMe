@@ -8,7 +8,6 @@ import subprocess
 from pydub import AudioSegment
 import os
 import shutil
-from pydub.utils import mediainfo
 
 
 def blend_frames(frame1, frame2, alpha):
@@ -191,4 +190,6 @@ if __name__ == "__main__":
     for temp_file in temp_video_files:
         os.remove(temp_file)
     for temp_file in temp_audio_files:
+        os.remove(temp_file)
+    for temp_file in temp_merged_files:
         os.remove(temp_file)

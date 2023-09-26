@@ -20,12 +20,13 @@ PresentMe is a Python tool for creating conference presentations. It overlays an
 3. Install required packages:
     ```
     conda install -c anaconda pillow moviepy opencv pandas numpy
-    conda install -c conda-forge pydub
+    conda install -c conda-forge pydub ffmpeg
     ```
 
 #### How to Prepare Slides
 - Create your presentation slides using PowerPoint.
 - Export the slides as PNG files.
+- If you want to enhance the resolution of exported slides, follow this [YouTube tutorial](https://www.youtube.com/watch?v=8gG3nDrGoTk).
 
 #### Folder Structure
 ```
