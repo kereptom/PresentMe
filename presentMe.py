@@ -81,12 +81,10 @@ if __name__ == "__main__":
     parser.add_argument("-w", "--webcams", required=True, help="Folder containing webcam videos.")
     parser.add_argument("-t", "--outline", required=True, help="Text file outlining the slide and webcam mapping.")
     parser.add_argument("-o", "--output", required=True, help="Output video file name.")
-    parser.add_argument("-a", "--audio", required=True, help="Output audio file name.")
 
     args = parser.parse_args()
     webcams_folder = args.webcams
     setup_file = args.outline
-    output_audio_file = args.audio
     slide_webcam_list = pd.read_csv(args.outline, sep=' ', names=['slide', 'webcam_or_duration'])
 
     temp_video_files = []
@@ -151,6 +149,7 @@ if __name__ == "__main__":
                                                            fps)
                 for blended_frame in blended_frames:
                     out.write(blended_frame)
+            os.remove(audio_path)
 
         out.release()
         temp_video_files.append(temp_output_video_file)
@@ -183,8 +182,10 @@ if __name__ == "__main__":
         '-safe', '0',
         '-i', 'concat_list.txt',
         '-c', 'copy',
-        args.output
+        os.path.join("out", args.output)
     ])
+
+    os.remove("concat_list.txt")
 
     # Remove temporary video and audio files
     for temp_file in temp_video_files:

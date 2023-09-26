@@ -19,8 +19,8 @@ PresentMe is a Python tool for creating conference presentations. It overlays an
     ```
 3. Install required packages:
     ```
-    conda install -c anaconda pillow moviepy opencv pandas numpy
-    conda install -c conda-forge pydub ffmpeg
+    pip install Pillow moviepy opencv-python pandas numpy pydub
+    conda install -c conda-forge ffmpeg
     ```
 
 #### How to Prepare Slides
@@ -46,7 +46,7 @@ PresentMe is a Python tool for creating conference presentations. It overlays an
 #### How to Run
 Execute the following command:
 ```
-python presentMe.py -w webcams -s slides -t setup.txt -o final.mp4 -a output_audio.mp3
+python presentMe.py -w webcams -s slides -t setup.txt -o final.mp4 
 ```
 
 #### Demonstration
@@ -54,4 +54,4 @@ python presentMe.py -w webcams -s slides -t setup.txt -o final.mp4 -a output_aud
 2. Record or place your webcam videos into the `webcams` folder.
 3. Edit `setup.txt` to map each slide to its corresponding webcam video or duration.
 4. Run the command mentioned in the "How to Run" section.
-5. The output will be a single video file (`final.mp4`) and an audio file (`output_audio.mp3`).
+5. The output will be a single video file (`out/final.mp4`).
